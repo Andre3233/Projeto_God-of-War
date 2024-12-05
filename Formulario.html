@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="Estilo.css">
+    <link rel="shortcut icon" href="Logo.ico" type="image/x-icon">
+</head>
+<style>
+    body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* Fundo claro */
+            overflow-x: hidden; /* Evita rolagem horizontal */
+        }
+
+        iframe {
+            width: 100%; /* O iframe ocupa toda a largura do contêiner */
+            min-height: 700px; /* Altura mínima para evitar cortes */
+            border: none; /* Remove bordas ao redor do iframe */
+        }
+
+</style>
+<body>
+    <!-- Contêiner do player de música -->
+    <div class="audio-container" id="audio-container">
+        ♪
+        <div class="audio" id="audio-player">
+            <audio controls>
+                <source src="Musica de fundo V2.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </div>
+    
+   <!--MENU-->
+   <button id="menu-button">☰</button>
+   <div id="menu">
+       <ul>
+           <li><a href="index.html">Inicio</a></li>
+           <li><a href="God of War Ascension.html">God of War Ascension</a></li>
+           <li><a href="God of War Chains of Olympus.html">God of War Chains of Olympus</a></li>
+           <li><a href="God of war(PS2).html">God of War (PS2)</a></li>
+           <li><a href="God of War Ghost of Sparta.html">God of War Ghost of Sparta</a></li>
+           <li><a href="God of War 2.html">God of War 2</a></li>
+           <li><a href="God of War 3.html">God of War 3</a></li>
+           <li><a href="God of War (2018).html">God of War (2018)</a></li>
+           <li><a href="God of War Ragnarok.html">God of War Ragnarok</a></li>
+           <li><a href="Personagens 3D.html">Personagens 3D</a></li>
+           <li><a href="Formulario.html">Formulario</a></li>
+           <li><a href="Localização e Contactos.html">Localização e Contactos</a></li>
+       </ul>
+   </div>
+
+    <div class="Formulario">
+        <!-- Formulário Google -->
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfPj-vvWuVGc7eJaB_GjNZhhcTByRMr-QNAkeHW03K3V_J1Xg/viewform?embedded=true" 
+            frameborder="0">A carregar…</iframe>
+    </div>
+
+    <script>
+        //MENU
+        const menuButton = document.getElementById('menu-button');
+        const menu = document.getElementById('menu');
+
+        menuButton.addEventListener('click', () => {
+            if (menu.style.left === '0px') {
+                menu.style.left = '-20%'; // Esconde o menu
+            } else {
+                menu.style.left = '0px'; // Mostra o menu
+            }
+        });
+
+        //Musica
+        const audioContainer = document.getElementById("audio-container");
+        const audioPlayer = document.getElementById("audio-player");
+
+        let isMouseDown = false; // Indica se o botão do mouse está pressionado
+        let offsetX = 0, offsetY = 0; // Posição relativa do clique
+
+        // Evento para iniciar o movimento com o botão direito
+        audioContainer.addEventListener("mousedown", function (e) {
+            if (e.button === 2) { // Verifica se é o botão direito (botão 2)
+                isMouseDown = true;
+                offsetX = e.clientX - audioContainer.getBoundingClientRect().left;
+                offsetY = e.clientY - audioContainer.getBoundingClientRect().top;
+                audioContainer.style.cursor = "grabbing"; // Muda o cursor para 'grabbing' enquanto arrasta
+            }
+        });
+
+        // Evento para mover o contêiner
+        document.addEventListener("mousemove", function (e) {
+            if (isMouseDown) {
+                // Calcula a nova posição do contêiner, garantindo que o contêiner siga o mouse
+                let x = e.clientX - offsetX;
+                let y = e.clientY - offsetY;
+
+                // Define a nova posição
+                audioContainer.style.left = `${x}px`;
+                audioContainer.style.top = `${y}px`;
+            }
+        });
+
+        // Evento para soltar o contêiner (apenas quando o botão direito for liberado)
+        document.addEventListener("mouseup", function (e) {
+            if (e.button === 2) { // Solta apenas se o botão direito for liberado
+                isMouseDown = false;
+                audioContainer.style.cursor = "grab"; // Retorna o cursor para 'grab'
+            }
+        });
+
+        // Abrir ou fechar o player de música ao clicar com o botão esquerdo
+        audioContainer.addEventListener("click", function (e) {
+            if (e.button === 0) { // Verifica se é o botão esquerdo
+                if (audioPlayer.style.opacity === "1") {
+                    audioPlayer.style.opacity = "0"; // Esconde o player
+                } else {
+                    audioPlayer.style.opacity = "1"; // Mostra o player
+                }
+            }
+        });
+
+        // Impedir o menu de contexto padrão no clique direito
+        audioContainer.addEventListener("contextmenu", function (e) {
+            e.preventDefault(); // Previne o menu de contexto
+        });
+    </script>
+</body>
+</html>

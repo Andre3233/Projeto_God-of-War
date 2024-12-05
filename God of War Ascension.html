@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God of War Ascension</title>
+    <link rel="stylesheet" href="Estilo.css">
+    <link rel="shortcut icon" href="Logo.ico" type="image/x-icon">
+    <style>
+        /* Estilo do título */
+        h1 {
+            font-size: 60px;
+            color: #fff;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.4);
+            font-family: 'Arial Black', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>God of War Ascension</h1>
+    <p>God of War: Ascension serve como outra prequela da série, ocorrendo dez anos antes dos eventos do God of War original.
+
+        Pouco depois de Kratos ser enganado por Ares para matar sua família, ele jura vingá-los e renuncia ao seu juramento de sangue de servir ao Deus da Guerra.
+        
+        Como punição por quebrar esse juramento, Kratos é sentenciado a uma eternidade acorrentado dentro de uma prisão para os condenados vivos enquanto suporta torturas sem fim pelas Fúrias que querem quebrar sua mente. Kratos terá que lutar para passar pela prisão enquanto busca sua liberdade, redenção e clareza para vingar sua família.</p>
+
+   <!-- Contêiner do player de música -->
+   <div class="audio-container" id="audio-container">
+    ♪
+    <div class="audio" id="audio-player">
+        <audio controls>
+            <source src="Musica de fundo V1.mp3" type="audio/mp3">
+        </audio>
+    </div>
+</div>
+
+    <!-- Vídeo -->
+    <div id="video">
+        <iframe src="https://geo.dailymotion.com/player.html?video=x7xmev1"
+            allowfullscreen
+            title="Dailymotion Video Player"
+            allow="web-share">
+      </iframe>
+
+     <!--MENU-->
+   <button id="menu-button">☰</button>
+   <div id="menu">
+       <ul>
+           <li><a href="index.html">Inicio</a></li>
+           <li><a href="God of War Ascension.html">God of War Ascension</a></li>
+           <li><a href="God of War Chains of Olympus.html">God of War Chains of Olympus</a></li>
+           <li><a href="God of war(PS2).html">God of War (PS2)</a></li>
+           <li><a href="God of War Ghost of Sparta.html">God of War Ghost of Sparta</a></li>
+           <li><a href="God of War 2.html">God of War 2</a></li>
+           <li><a href="God of War 3.html">God of War 3</a></li>
+           <li><a href="God of War (2018).html">God of War (2018)</a></li>
+           <li><a href="God of War Ragnarok.html">God of War Ragnarok</a></li>
+           <li><a href="Personagens 3D.html">Personagens 3D</a></li>
+           <li><a href="Formulario.html">Formulario</a></li>
+           <li><a href="Localização e Contactos.html">Localização e Contactos</a></li>
+       </ul>
+   </div>
+
+    <script>
+        // MENU
+        const menuButton = document.getElementById('menu-button');
+        const menu = document.getElementById('menu');
+
+        menuButton.addEventListener('click', () => {
+            if (menu.style.left === '0px') {
+                menu.style.left = '-20%'; // Esconde o menu
+            } else {
+                menu.style.left = '0px'; // Mostra o menu
+            }
+        });
+
+        //Musica
+        const audioContainer = document.getElementById("audio-container");
+        const audioPlayer = document.getElementById("audio-player");
+
+        let isMouseDown = false; // Indica se o botão do mouse está pressionado
+        let offsetX = 0, offsetY = 0; // Posição relativa do clique
+
+        // Evento para iniciar o movimento com o botão direito
+        audioContainer.addEventListener("mousedown", function (e) {
+            if (e.button === 2) { // Verifica se é o botão direito (botão 2)
+                isMouseDown = true;
+                offsetX = e.clientX - audioContainer.getBoundingClientRect().left;
+                offsetY = e.clientY - audioContainer.getBoundingClientRect().top;
+                audioContainer.style.cursor = "grabbing"; // Muda o cursor para 'grabbing' enquanto arrasta
+            }
+        });
+
+        // Evento para mover o contêiner
+        document.addEventListener("mousemove", function (e) {
+            if (isMouseDown) {
+                // Calcula a nova posição do contêiner, garantindo que o contêiner siga o mouse
+                let x = e.clientX - offsetX;
+                let y = e.clientY - offsetY;
+
+                // Define a nova posição
+                audioContainer.style.left = `${x}px`;
+                audioContainer.style.top = `${y}px`;
+            }
+        });
+
+        // Evento para soltar o contêiner (apenas quando o botão direito for liberado)
+        document.addEventListener("mouseup", function (e) {
+            if (e.button === 2) { // Solta apenas se o botão direito for liberado
+                isMouseDown = false;
+                audioContainer.style.cursor = "grab"; // Retorna o cursor para 'grab'
+            }
+        });
+
+        // Abrir ou fechar o player de música ao clicar com o botão esquerdo
+        audioContainer.addEventListener("click", function (e) {
+            if (e.button === 0) { // Verifica se é o botão esquerdo
+                if (audioPlayer.style.opacity === "1") {
+                    audioPlayer.style.opacity = "0"; // Esconde o player
+                } else {
+                    audioPlayer.style.opacity = "1"; // Mostra o player
+                }
+            }
+        });
+
+        // Impedir o menu de contexto padrão no clique direito
+        audioContainer.addEventListener("contextmenu", function (e) {
+            e.preventDefault(); // Previne o menu de contexto
+        });
+    </script>
+</body>
+</html>

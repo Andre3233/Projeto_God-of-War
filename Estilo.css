@@ -1,0 +1,209 @@
+@charset "utf-8";
+
+body {
+    min-height: 100vh; /* Permite que o conteúdo se ajuste ao tamanho mínimo da janela */
+    margin: 0; /* Remove margens padrão */
+    background-image: url('Inicio-background.jpg'); /* Caminho da imagem */
+    background-size: cover; /* Ajusta a imagem para cobrir toda a área */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-position: center; /* Centraliza a imagem */
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+    color: #fff;
+    }
+
+    p{
+        font: normal 20pt Arial;
+    }
+    
+button {
+    padding: 15px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; 
+}
+.custom1-button, .custom2-button, .custom3-button, .custom4-button,.custom5-button,.custom6-button,.custom7-button,.custom8-button,.custom9-button{
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    max-width: 500px; 
+    margin: 0 auto;
+}
+
+.custom1-button, .custom2-button, .custom3-button, .custom4-button, .custom5-button,.custom6-button,.custom7-button,.custom8-button,.custom9-button{
+    width: 150px;
+    height: 150px;
+    background-color: #000000; 
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.custom1-button:hover, .custom2-button:hover, .custom3-button:hover, .custom4-button:hover,.custom5-button:hover,.custom5-button:hover,.custom6-button:hover{
+    transform: scale(1.05);
+}
+
+audio{
+    position: absolute;
+    top: 0px; /* Distância do topo */
+    right: 1px; /*Distancia da borda*/
+}
+
+/* MENU */
+#menu-button {
+    position: fixed;
+    top: -20px;
+    left: 0;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1002;
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    left: -20%; /* Inicia fora da tela (oculto à esquerda) */
+    width: 20%;
+    height: 100%; /* A altura é 100% da tela */
+    background-color: #111;
+    color: white;
+    padding-top: 1%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease; /* Animação suave ao abrir/fechar */
+    z-index: 1000;
+    overflow-y: auto; /* Permite rolagem caso o conteúdo seja maior que a tela */
+}
+
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#menu ul li {
+    margin: 20px 0;
+}
+
+#menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+#menu ul li a:hover {
+    background-color: #444;
+}
+
+/* Submenu */
+#submenu-3d-extension {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 200px;
+    background-color: #111;
+    border-left: 2px solid #555;
+    padding-top: 10px;
+    z-index: 1001;
+}
+
+#personagens-3d {
+    position: relative;
+}
+
+#personagens-3d:hover #submenu-3d-extension {
+    display: block;
+}
+
+#submenu-3d-extension p {
+    margin: 0;
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+#submenu-3d-extension p:hover {
+    background-color: #444;
+}
+
+/*Video*/
+#video {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    width: 100%;
+}
+
+#video iframe {
+    width: 640px;
+    height: 360px;
+    border: none;
+}
+
+/* Estilo do contêiner de áudio */
+.audio-container {
+    position: absolute;
+    top: 0; /* Fixa o contêiner no topo */
+    right: 0; /* Fixa o contêiner no lado direito */
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab; /* Inicialmente, o cursor é 'grab' */
+    font-size: 30px;
+    color: #fff;
+    z-index: 1000;
+}
+
+.audio-container:hover {
+    background-color: darkred;
+}
+
+/* Player de música */
+.audio {
+    position: absolute;
+    top: 50%; /* Alinha verticalmente com o contêiner */
+    left: -320px; /* Move o player para o lado esquerdo */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 300px;
+    transform: translateY(-50%);
+}

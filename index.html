@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="Estilo.css">
+    <link rel="shortcut icon" href="Logo.ico" type="image/x-icon">
+</head>
+<style>
+    h1 {
+        font-size: 60px;
+        color: #fff;
+        text-align: center;
+        margin-top: 20px;
+        text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.4);
+        font-family: 'Arial Black', sans-serif;
+        background: linear-gradient(90deg, rgba(255, 251, 0, 0.8), rgba(0, 0, 0, 0.979));
+        padding: 10px;
+        border-radius: 10px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 4px 15px rgba(229, 255, 0, 0.7);
+    }
+
+    .custom1-button {
+        background-image: url('God of War_Ascension.jpg');
+    }
+
+    .custom2-button {
+        background-image: url('God of War_Chains of Olympus.jpg');
+    }
+
+    .custom3-button {
+        background-image: url('God of war(PS2).jpg');
+    }
+
+    .custom4-button {
+        background-image: url('God of War_Ghost of Sparta.jpg');
+    }
+
+    .custom5-button {
+        background-image: url('God of war 2.jpg');
+    }
+
+    .custom6-button {
+        background-image: url('God of War 3.jpg');
+    }
+
+    .custom7-button {
+        background-image: url('God of War (2018).jpg');
+    }
+
+    .custom8-button {
+        background-image: url('God of War_Ragnarok.jpg');
+    }
+
+    .custom9-button {
+        background-image: url('3D.jpg');
+    }
+
+    /* Removido efeito hover nas imagens */
+    .custom-button:hover, .custom1-button:hover, .custom2-button:hover, 
+    .custom3-button:hover, .custom4-button:hover, .custom5-button:hover, 
+    .custom6-button:hover, .custom7-button:hover, .custom8-button:hover, 
+    .custom9-button:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: none;
+    }
+
+    .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; 
+        justify-content: center; 
+    }
+
+    /* Mensagem Temporária */
+    .notficacao {
+        position: fixed;
+        top: 10%;
+        right: 10px;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        font-family: 'Arial', sans-serif;
+        font-size: 16px;
+        max-width: 300px;
+        width: auto;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        transform: translateY(-20px);
+    }
+
+    /* Exibe a mensagem com animação */
+    .notficacao.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Botão de fechar no canto inferior direito */
+    .close-btn {
+        position: absolute;
+        bottom: 10px; /* Muda de 'top' para 'bottom' */
+        right: 10px; /* Mantém no canto direito */
+        background-color: rgba(0, 0, 0, 0.8); /* Mesma cor do retângulo */
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Efeito de hover no botão */
+    .close-btn:hover {
+        background-color: rgba(0, 0, 0, 0.9); /* Cor mais escura quando passar o mouse */
+    }
+
+</style>
+<body>
+    <h1>God of War</h1>
+    <div class="button-container">
+        <button class="custom1-button" onclick="window.location.href='God of War Ascension.html';" title="God of War Ascension"></button>
+        <button class="custom2-button" onclick="window.location.href='God of War Chains of Olympus.html';" title="God of War Chains of Olympus"></button>
+        <button class="custom3-button" onclick="window.location.href='God of war(PS2).html';" title="God of war(PS2)"></button>
+        <button class="custom4-button" onclick="window.location.href='God of War Ghost of Sparta.html';" title="God of War Ghost of Sparta"></button>
+        <button class="custom5-button" onclick="window.location.href='God of war 2.html';" title="God of war 2"></button>
+        <button class="custom6-button" onclick="window.location.href='God of War 3.html';" title="God of War 3"></button>
+        <button class="custom7-button" onclick="window.location.href='God of War (2018).html';" title="God of War (2018)"></button>
+        <button class="custom8-button" onclick="window.location.href='God of War Ragnarok.html';" title="God of War Ragnarok"></button>
+        <button class="custom9-button" onclick="window.location.href='Personagens 3D.html';" title="Personagens 3D"></button>
+    </div>
+
+    <!-- Contêiner do player de música -->
+    <div class="audio-container" id="audio-container">
+        ♪
+        <div class="audio" id="audio-player">
+            <audio controls>
+                <source src="Musica de fundo V1.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </div>
+
+     <!--MENU-->
+   <button id="menu-button">☰</button>
+   <div id="menu">
+       <ul>
+           <li><a href="index.html">Inicio</a></li>
+           <li><a href="God of War Ascension.html">God of War Ascension</a></li>
+           <li><a href="God of War Chains of Olympus.html">God of War Chains of Olympus</a></li>
+           <li><a href="God of war(PS2).html">God of War (PS2)</a></li>
+           <li><a href="God of War Ghost of Sparta.html">God of War Ghost of Sparta</a></li>
+           <li><a href="God of War 2.html">God of War 2</a></li>
+           <li><a href="God of War 3.html">God of War 3</a></li>
+           <li><a href="God of War (2018).html">God of War (2018)</a></li>
+           <li><a href="God of War Ragnarok.html">God of War Ragnarok</a></li>
+           <li><a href="Personagens 3D.html">Personagens 3D</a></li>
+           <li><a href="Formulario.html">Formulario</a></li>
+           <li><a href="Localização e Contactos.html">Localização e Contactos</a></li>
+       </ul>
+   </div>
+
+    <!--Mensagem Temporária-->
+    <div id="notficacao" class="notficacao">
+        Clique em uma das imagens ou nas abas do menu para conhecer mais sobre a história de God of War.
+        <button class="close-btn" onclick="closeNotification()">×</button> <!-- Botão de fechar -->
+    </div>
+
+    <script>
+        //MENU
+        const menuButton = document.getElementById('menu-button');
+        const menu = document.getElementById('menu');
+
+        menuButton.addEventListener('click', () => {
+            if (menu.style.left === '0px') {
+                menu.style.left = '-20%'; // Esconde o menu
+            } else {
+                menu.style.left = '0px'; // Mostra o menu
+            }
+        });
+        
+        // Exibe a mensagem temporária
+        const notification = document.getElementById('notficacao');
+        
+        // Função para mostrar a mensagem
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 1000); // Mostra a mensagem após 1 segundo
+
+        // Esconde a mensagem após 30 segundos
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 31000); // Esconde a mensagem após 31 segundos
+
+        // Função para fechar a notificação
+        function closeNotification() {
+            notification.classList.remove('show');
+        }
+
+        //Musica
+        const audioContainer = document.getElementById("audio-container");
+        const audioPlayer = document.getElementById("audio-player");
+
+        let isMouseDown = false; // Indica se o botão do mouse está pressionado
+        let offsetX = 0, offsetY = 0; // Posição relativa do clique
+
+        // Evento para iniciar o movimento com o botão direito
+        audioContainer.addEventListener("mousedown", function (e) {
+            if (e.button === 2) { // Verifica se é o botão direito (botão 2)
+                isMouseDown = true;
+                offsetX = e.clientX - audioContainer.getBoundingClientRect().left;
+                offsetY = e.clientY - audioContainer.getBoundingClientRect().top;
+                audioContainer.style.cursor = "grabbing"; // Muda o cursor para 'grabbing' enquanto arrasta
+            }
+        });
+
+        // Evento para mover o contêiner
+        document.addEventListener("mousemove", function (e) {
+            if (isMouseDown) {
+                // Calcula a nova posição do contêiner, garantindo que o contêiner siga o mouse
+                let x = e.clientX - offsetX;
+                let y = e.clientY - offsetY;
+
+                // Define a nova posição
+                audioContainer.style.left = `${x}px`;
+                audioContainer.style.top = `${y}px`;
+            }
+        });
+
+        // Evento para soltar o contêiner (apenas quando o botão direito for liberado)
+        document.addEventListener("mouseup", function (e) {
+            if (e.button === 2) { // Solta apenas se o botão direito for liberado
+                isMouseDown = false;
+                audioContainer.style.cursor = "grab"; // Retorna o cursor para 'grab'
+            }
+        });
+
+        // Abrir ou fechar o player de música ao clicar com o botão esquerdo
+        audioContainer.addEventListener("click", function (e) {
+            if (e.button === 0) { // Verifica se é o botão esquerdo
+                if (audioPlayer.style.opacity === "1") {
+                    audioPlayer.style.opacity = "0"; // Esconde o player
+                } else {
+                    audioPlayer.style.opacity = "1"; // Mostra o player
+                }
+            }
+        });
+
+        // Impedir o menu de contexto padrão no clique direito
+        audioContainer.addEventListener("contextmenu", function (e) {
+            e.preventDefault(); // Previne o menu de contexto
+        });
+    </script>
+</body>
+</html>
